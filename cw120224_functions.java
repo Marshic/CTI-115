@@ -12,7 +12,8 @@ public class cw120224_functions
         int number = getNumGrades(in);
         int tot = getGrades(in, number);
         double ave = getAverage(number, tot);
-        System.out.println(ave);
+        char grade = getLetterGrade(ave);
+        displayGrades(ave, grade);
         in.close();
 
     }
@@ -36,7 +37,37 @@ public class cw120224_functions
         public static double getAverage(int num, double total)
     {
         return total / num;
-        //double average = total/ num;
-        // return average;
+        // int average = total/ num;
+        // return average; 
+    }
+    public static char getLetterGrade(double ave)
+    {
+        char grade;
+        if (ave >= 90)
+        {
+        grade = 'A';
+        }
+        else if (ave >= 80)
+        {
+            grade = 'B';
+        }
+        else if (ave >= 70)
+        {
+            grade = 'C';
+        }
+        else if (ave >= 60)
+        {
+            grade = 'D';
+        }
+        else
+        {
+            grade = 'F';
+        }
+        return grade;
+    }
+    public static void displayGrades(double ave, char grade) // To display both the average and grade
+    {
+        System.out.println(String.format("%.2f", ave)); // Formatted to round the average
+        System.out.println(grade);
     }
 }
